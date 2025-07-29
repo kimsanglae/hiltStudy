@@ -5,14 +5,18 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+hilt {
+    enableAggregatingTask = false
+}
+
 android {
     namespace = "com.example.hiltstudy"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.hiltstudy"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -41,6 +45,7 @@ dependencies {
     // Hilt + KSP
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
